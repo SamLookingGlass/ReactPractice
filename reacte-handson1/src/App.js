@@ -7,6 +7,7 @@ import DisplayMessage from './DisplayMessage'
 import BorderedImageFrame from './BorderedImageFrame'
 import image from "./japanese-food-1.jpg"
 import SumOfTwo from './SumOfTwo';
+import Counter from './Counter';
 
 function App() {
   // const styles = {
@@ -18,8 +19,10 @@ function App() {
   return (
     <React.Fragment>
       <DisplayMessage message="Hello there!"/>
+      <Counter />
+      <Counter />
       {/* <BorderedImageFrame img={image} /> */}
-      <SumOfTwo NumberOne={1} NumberTwo={3} />
+      {/* <SumOfTwo NumberOne={1} NumberTwo={3} /> */}
       {/* <Navbar /> */}
       {/* <SectionOne /> */}
       {/* <SectionTwo /> */}
