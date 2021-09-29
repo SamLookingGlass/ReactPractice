@@ -20,6 +20,7 @@ export default class Counter extends React.Component {
         )
     }
 
+    // Needs to be an arrow function for classes
     increment = () => {
         this.setState({
             'number':this.state.number + 1
