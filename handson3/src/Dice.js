@@ -2,15 +2,35 @@ import React from "react"
 
 export default class Dice extends React.Component {
     state ={
-        count: this.props.initialValue
+        count: this.randomNumber(),
+        diceColor: "pink",
+        diceTextColor: "black"
     }
 
     click = () => {
-        this.setState({
-            'count': Math.floor(Math.random() * (6 - 1 + 1) + 1)
-        })
+        let diceValue = this.randomNumber()
+        if (diceValue === 1) {
+            this.setState({
+                count: diceValue,
+                diceTextColor: "red"
+            })
+        } else if (diceValue === 6) {
+            this.setState({
+                count: diceValue,
+                diceTextColor: "green"
+            })
+        } else {
+            this.setState({
+                count:diceValue,
+                diceTextColor: "black"
+            })
+        } 
     }
 
+    randomNumber() {
+        let diceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+        return parseInt(diceValue)
+    }
     render() {
         return (
             <div onClick={this.click} style={{
@@ -18,7 +38,8 @@ export default class Dice extends React.Component {
                 fontSize:"500%",
                 width:"120px",
                 height:"120px",
-                backgroundColor:'pink'
+                backgroundColor: this.state.diceColor,
+                color: this.state.diceTextColor,
             }}>
                 {this.state.count}
             </div>
