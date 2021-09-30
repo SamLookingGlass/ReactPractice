@@ -12,13 +12,13 @@ export default class SurveyForm extends React.Component {
             <React.Fragment>
                 <div>
                     <label>Name:</label>
-                    <input type="text" value={this.state.name} onChange={this.updateName}/>
+                    <input type="text" value={this.state.name} onChange={this.updateFormField}/>
                 </div>
                 <div>
                 <label>Favourite Colour:</label>
-                    <input type="radio" value="red" checked={this.state.color=='red'} onChange={this.updateColor}/>Red
-                    <input type="radio" value="blue" checked={this.state.color=='blue'} onChange={this.updateColor}/>Blue
-                    <input type="radio" value="green" checked={this.state.color=='green'} onChange={this.updateColor}/>Green
+                    <input type="radio" value="red" checked={this.state.color=='red'} onChange={this.updateFormField}/>Red
+                    <input type="radio" value="blue" checked={this.state.color=='blue'} onChange={this.updateFormField}/>Blue
+                    <input type="radio" value="green" checked={this.state.color=='green'} onChange={this.updateFormField}/>Green
                 </div>
                 <div>
                     <label>Country:</label>
@@ -32,7 +32,14 @@ export default class SurveyForm extends React.Component {
             </React.Fragment>
         )
     }
-    // Text Box
+    
+    // Elegant way 
+    updateFormField = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
     updateName = (e) => {
         this.setState({
             name:e.target.value        
