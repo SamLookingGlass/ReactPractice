@@ -2,51 +2,49 @@ import React from "react"
 
 export default class ContactUsForm extends React.Component {
     state = {
-        'firstname':'Test',
-        'lastname':'Test',
-        'enquiry':'',
-        'country':''
+        'firstname' : "",
+        'lastname' : "",
+        'country' : "",
+        'enquiry' : "",
+        'fruits':[]
     }
 
     render() {
         return (
             <React.Fragment>
+                {/* Name */}
                 <div>
                     <label>First Name:</label>
-                    <input type="text" value={this.state.name} onChange={this.updateFormField}/>
+                    <input type="text" name="firstname" value={this.state.firstname} onChange={this.updateFormField} /> 
                     <label>Last Name:</label>
-                    <input type="text" value={this.state.lastname} onChange={this.updateFormField}/>
+                    <input type="text" name="lastname" value={this.state.lastname} onChange={this.updateFormField} />
                 </div>
+                {/* Type of Enquiry */}
                 <div>
-                <label>What is your enquiry related to?</label>
-                    <input type="radio" value="marketing" checked={this.state.enquiry} onChange={this.updateFormField} />Marketing
-                    <input type="radio" value="sales" checked={this.state.enquiry} onChange={this.updateFormField} />Sales
-                    <input type="radio" value="support" checked={this.state.enquiry} onChange={this.updateFormField} />Support
-                    <input type="radio" value="others" checked={this.state.enquiry} onChange={this.updateFormField} />Others
+                    <label>What is your enquiry</label>
+                    <input type="radio" name="enquiry" value="marketing" onChange={this.updateFormField} checked={this.state.enquiry === "marketing"}/> Marketing
+                    <input type="radio" name="enquiry" value="sales" onChange={this.updateFormField} checked={this.state.enquiry === "sales"}/> Sales
+                    <input type="radio" name="enquiry" value="support" onChange={this.updateFormField} checked={this.state.enquiry === "support"}/> Support
                 </div>
+                {/* Country */}
                 <div>
                     <label>Country:</label>
-                    <select value={this.state.country} onChange={this.updateFormField}>
+                    <select name="country" value={this.state.country} onChange={this.updateFormField}>
                         <option value="singapore">Singapore</option>
                         <option value="malaysia">Malaysia</option>
                         <option value="indonesia">Indonesia</option>
                     </select>
                 </div>
-                <button onClick={this.alertUser}>Submit</button>
+                <button>Submit</button>
+
             </React.Fragment>
         )
     }
-    
-    // Elegant way 
+
     updateFormField = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name] : e.target.value
         })
     }
 
-    alertUser = () => {
-        return(
-            alert(this.state.firstname)
-        )
-    }
-}
+} 
