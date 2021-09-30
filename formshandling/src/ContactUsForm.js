@@ -6,7 +6,7 @@ export default class ContactUsForm extends React.Component {
         'lastname' : "",
         'country' : "",
         'enquiry' : "",
-        'fruits':[]
+        'contact':[]
     }
 
     render() {
@@ -36,7 +36,13 @@ export default class ContactUsForm extends React.Component {
                     </select>
                 </div>
                 <button onClick={this.alertUser}>Submit</button>
-
+                {/* Contact */}
+                <div>
+                    <label>How would you like to be contacted?:</label>
+                    <input type="checkbox" name="contact" value="email" onChange={this.updateContact} /><span>Email</span>
+                    <input type="checkbox" name="contact" value="phone" onChange={this.updateContact} /><span>Phone</span>
+                    <input type="checkbox" name="contact" value="slowmail" onChange={this.updateContact} /><span>Slow Mail</span>
+                </div>
             </React.Fragment>
         )
     }
@@ -58,4 +64,20 @@ export default class ContactUsForm extends React.Component {
         )
     }
 
+    updateContact = (e) => {
+        
+        if (this.state.contact.includes(e.target.value)) {
+            let indexToRemove = this.state.contact.indexOf(e.target.value);
+            let cloned = [ ...this.state.contact.slice(0, indexToRemove), ...this.state.contact.slice(indexToRemove+1)];
+            this.setState({
+                'contact':cloned
+            })
+
+        } else {
+            this.setState({
+                'contact': [...this.state.contact, e.target.value]
+            })
+        }
+
+    }
 } 
