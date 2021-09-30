@@ -6,7 +6,8 @@ export default class ContactUsForm extends React.Component {
         'lastname' : "",
         'country' : "",
         'enquiry' : "",
-        'contact':[]
+        'contact':[],
+        'submitDisabled':true
     }
 
     render() {
@@ -35,7 +36,6 @@ export default class ContactUsForm extends React.Component {
                         <option value="indonesia">Indonesia</option>
                     </select>
                 </div>
-                <button onClick={this.alertUser}>Submit</button>
                 {/* Contact */}
                 <div>
                     <label>How would you like to be contacted?:</label>
@@ -43,6 +43,9 @@ export default class ContactUsForm extends React.Component {
                     <input type="checkbox" name="contact" value="phone" onChange={this.updateContact} /><span>Phone</span>
                     <input type="checkbox" name="contact" value="slowmail" onChange={this.updateContact} /><span>Slow Mail</span>
                 </div>
+
+                <button disabled={this.state.submitDisabled} onMouseEnter={this.checkFields} onClick={this.alertUser}>Submit</button>
+
             </React.Fragment>
         )
     }
@@ -77,7 +80,17 @@ export default class ContactUsForm extends React.Component {
             this.setState({
                 'contact': [...this.state.contact, e.target.value]
             })
-        }
+        }   
+    }
 
+    checkFields = () => {
+        return(
+            alert("Test")
+        )
+        //     if (this.state.firstname) {
+    //         this.setState({
+    //             'submitDisabled': false
+    //         })
+    //     }
     }
 } 
