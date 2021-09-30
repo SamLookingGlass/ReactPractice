@@ -1,7 +1,8 @@
 import './App.css';
 import NumberBox from './NumberBox';
 import TickleBox from './TickleBox';
-import Counter from './Counter'
+import Counter from './Counter';
+import Dice from './Dice'
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <NumberBox initialValue={10}/>
       <Counter startingNumber={0}/>
       <TickleBox text="I'm elmo!"/>
+      <Dice initialValue={1}/>
+
     </div>
   );
 }
