@@ -35,7 +35,7 @@ export default class ContactUsForm extends React.Component {
                         <option value="indonesia">Indonesia</option>
                     </select>
                 </div>
-                <button>Submit</button>
+                <button onClick={this.alertUser}>Submit</button>
 
             </React.Fragment>
         )
@@ -45,6 +45,17 @@ export default class ContactUsForm extends React.Component {
         this.setState({
             [e.target.name] : e.target.value
         })
+    }
+
+    alertUser = () => {
+        let fname = String(this.state.firstname)
+        let lname = String(this.state.lastname)
+        let country = String(this.state.country)
+        let enquiry = String(this.state.enquiry)
+
+        return(
+            alert(`Hello ${fname} ${lname}, you are from ${country} with a ${enquiry} enquiry.`)
+        )
     }
 
 } 
