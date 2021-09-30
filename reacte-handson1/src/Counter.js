@@ -6,7 +6,7 @@ import React from "react"
 // Must be named 'state'
 export default class Counter extends React.Component {
     state = {
-        "number":0
+        "number": this.props.startingNumber
     }
     render() {
         return (

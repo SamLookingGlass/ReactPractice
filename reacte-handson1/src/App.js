@@ -19,8 +19,8 @@ function App() {
   return (
     <React.Fragment>
       <DisplayMessage message="Hello there!"/>
-      <Counter />
-      <Counter />
+      <Counter startingNumber={10}/>
+      <Counter startingNumber={15}/>
       {/* <BorderedImageFrame img={image} /> */}
       {/* <SumOfTwo NumberOne={1} NumberTwo={3} /> */}
       {/* <Navbar /> */}
